@@ -1,9 +1,9 @@
-import random
+from random import sample
 
-def Password(length: int) -> str:
+def password(length: int) -> str:
     '''
-    Password is ASCII characters
+    The password is ASCII charcters and the maximum length of the password is 95 charcters.
     '''
-    password_list = list(random.sample(' !"#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~' + "'", 95))
-    password = ''.join(password_list[:length])
-    return password
+    PASSWORD = sample(' !\'"#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~', 95)
+    str_password = ''.join(PASSWORD[:length])
+    return str_password
