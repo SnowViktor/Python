@@ -2,11 +2,12 @@ from math import floor
 
 def range_progress(variable: int, start: int, stop: int, step: int = 0) -> str:
     '''
-    ## Remember to add , end='\\r'    
-    Example↓\n
-    for i in range(2, 100):\n
-        # variable = i, start = 2, stop = 100, step = 0\n
-        print(range_progress(i, 2, 100), end='\\r')
+    # **Remember to add , end='\\r'**
+
+    Example:
+        >>> for i in range(2, 100):
+        >>>     #variable = i, start = 2, stop = 100, step = 0
+        >>>     print(range_progress(i, 2, 100), end='\\r')
     '''
 
     BAR_TOTAL = 25

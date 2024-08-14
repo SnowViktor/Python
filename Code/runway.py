@@ -2,10 +2,10 @@ def runway(degree: int | str) -> str:
     '''
     Convert an angle to a runway number.
 
-    Args:
+    Arg:
         degree (int | str): The angle in degrees, can be an integer or a string (with or without '°').
 
-    Returns:
+    Return:
         str: The runway number as a two-digit string.
 
     Examples:
