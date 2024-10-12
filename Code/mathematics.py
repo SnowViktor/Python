@@ -1,4 +1,4 @@
-import math
+from math import sqrt
 
 def is_prime(positive_integer: int) -> bool:
     for i in range(2, positive_integer):
@@ -24,7 +24,7 @@ def quadratic_formula(a: float | int, b: float | int, c: float | int) -> list[fl
         x2 = -b / (2 * a)
         x = [x1, x2]
     elif discriminant > 0:
-        x1 = (-b + math.sqrt(discriminant)) / (2 * a)
-        x2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        x1 = (-b + sqrt(discriminant)) / (2 * a)
+        x2 = (-b - sqrt(discriminant)) / (2 * a)
         x = [x1, x2]
     return x

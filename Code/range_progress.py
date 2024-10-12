@@ -2,9 +2,10 @@ from math import floor
 
 def range_progress(variable: int, start: int, stop: int, step: int = 0) -> str:
     '''
-    # **Remember to add , end='\\r'**
+    ### **Remember to add , end='\\r'**
 
     Example:
+    
         >>> for i in range(2, 100):
         >>>     #variable = i, start = 2, stop = 100, step = 0
         >>>     print(range_progress(i, 2, 100), end='\\r')
@@ -21,5 +22,4 @@ def range_progress(variable: int, start: int, stop: int, step: int = 0) -> str:
         progress_bar = floor(variable * (BAR_TOTAL / total))
         progress_percentage = round(variable * (100 / total))
 
-    progress = f' [{'▮' * progress_bar}{'▯' * (BAR_TOTAL - progress_bar)}] {progress_percentage}%'
-    return progress
+    return f' [{'▮' * progress_bar}{'▯' * (BAR_TOTAL - progress_bar)}] {progress_percentage}%'
