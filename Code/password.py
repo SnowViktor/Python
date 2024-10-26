@@ -3,23 +3,14 @@ from random import sample
 def caesar_cipher(text: str, offset: int) -> str:
     '''
     >>> caesar_cipher('Hello, World!', 1)
-    'ifmmp, xpsme!'
+    'Ifmmp, Xpsme!'
     '''
 
     ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
-    offset_text = ''
-
-    for character in text:
-        if character.lower() in ALPHABET:
-            character_position = ALPHABET.find(character.lower())
-            offset_character = ALPHABET[(character_position + offset) % 26]
-            if character not in ALPHABET:
-                offset_character.upper()
-            offset_text += offset_character
-        elif character not in ALPHABET:
-            offset_text += character
+    OFFSET_MAP = {c: ALPHABET[(i + offset) % 26] for i, c in enumerate(ALPHABET)}
+    OFFSET_MAP.update({c.upper(): ALPHABET[(i + offset) % 26].upper() for i, c in enumerate(ALPHABET)})
     
-    return offset_text
+    return ''.join(OFFSET_MAP.get(char, char) for char in text)
 
 def random_generator(length: int) -> str:
     '''

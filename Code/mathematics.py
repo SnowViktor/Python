@@ -8,23 +8,22 @@ def is_prime(positive_integer: int) -> bool:
 
 def quadratic_formula(a: float | int, b: float | int, c: float | int) -> list[float] | None: 
     '''
-    ### Quadratic Equation: ax² + bx + c = 0 (a ≠ 0)\n
-    ### Quadratic Formula: (-b ± √(b²-4ac)) / (2a)\n
-    Discriminant: b² - 4ac
-        < 0 -> None\n
-        = 0 -> list\n
-        > 0 -> list
+    ### Quadratic Equation: ax² + bx + c = 0 (a ≠ 0)
+    ### Quadratic Formula: (-b ± √( b² - 4ac )) / (2a)
+    #### Discriminant: b² - 4ac
     '''
 
     discriminant = b ** 2 - 4 * a * c
+
     if discriminant < 0:
-        x = None # No Real Roots
+        return None # No Real Roots
     elif discriminant == 0:
-        x1 = -b / (2 * a)
-        x2 = -b / (2 * a)
-        x = [x1, x2]
+        x = (-b) / (2 * a)
+        return [x, x] # One Real Root (repeated)
     elif discriminant > 0:
-        x1 = (-b + _sqrt(discriminant)) / (2 * a)
-        x2 = (-b - _sqrt(discriminant)) / (2 * a)
-        x = [x1, x2]
-    return x
+        sqrt_discriminant = _sqrt(discriminant)
+        x1 = (-b + sqrt_discriminant) / (2 * a)
+        x2 = (-b - sqrt_discriminant)  / (2 * a)
+        return [x1, x2] # Two Real Roots
+    else:
+        pass

@@ -2,24 +2,35 @@ from math import floor
 
 def range_progress(variable: int, start: int, stop: int, step: int = 0) -> str:
     '''
-    ### **Remember to add , end='\\r'**
+    ### Remember to add , end='\\r'
 
     Example:
     
         >>> for i in range(2, 100):
-        >>>     #variable = i, start = 2, stop = 100, step = 0
+        >>>     # variable = i, start = 2, stop = 100, step = 0
         >>>     print(range_progress(i, 2, 100), end='\\r')
     '''
-
+    
     BAR_TOTAL = 25
-    variable = variable - start + 1
     total = stop - start
+    variable = variable - start + 1 + step
 
-    if variable + step >= total:
-        progress_bar = BAR_TOTAL
-        progress_percentage = 100
-    else:
-        progress_bar = floor(variable * (BAR_TOTAL / total))
-        progress_percentage = round(variable * (100 / total))
+    # Limit progress to 100% when variable exceeds total
+    progress_percentage = min(100, round(variable * 100 / total))
+    progress_bar = min(BAR_TOTAL, floor(variable * BAR_TOTAL / total))
 
-    return f' [{'▮' * progress_bar}{'▯' * (BAR_TOTAL - progress_bar)}] {progress_percentage}%'
+    return f' [{"▮" * progress_bar}{"▯" * (BAR_TOTAL - progress_bar)}] {progress_percentage}%'
+
+if __name__ == '__main__':
+    from time import sleep
+
+    start = 2
+    stop = 100
+    step = 0
+    total_duration = 5
+    iterations = stop - start
+    delay = total_duration / iterations
+
+    for i in range(start, stop):
+        print(range_progress(i, start, stop, step), end='\r')
+        sleep(delay)
