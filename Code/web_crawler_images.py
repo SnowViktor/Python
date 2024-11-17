@@ -16,6 +16,3 @@ def web_crawler_images(url: str, images_path: str):
         with open(f'{images_path}/{number}.jpg', 'wb') as f:
             f.write(jpg.content)
         number += 1
-
-if __name__ == '__main__':
-    web_crawler_images('https://github.com', './images')

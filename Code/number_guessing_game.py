@@ -27,6 +27,3 @@ def number_guessing_game():
     play_again = input("\nContinue to the next round?(y/n): ")
     if play_again.lower() == 'y':
         number_guessing_game()
-
-if __name__ == '__main__':
-    number_guessing_game()
