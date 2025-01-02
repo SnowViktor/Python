@@ -1,7 +1,7 @@
 def caesar_cipher(text: str, offset: int) -> str:
     '''
-    >>> caesar_cipher('Python 3.13.0', 1)
-    'Qzuipo 4.24.1'
+    >>> caesar_cipher('Python 3.13.1', 1)
+    'Qzuipo 4.24.2'
     '''
 
     ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
