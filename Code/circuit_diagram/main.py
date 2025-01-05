@@ -1,0 +1,36 @@
+import schemdraw
+import schemdraw.elements as elm
+
+with schemdraw.Drawing(file='./Code/circuit_diagram/parallel.svg', show=False) as d:
+    lamp = elm.Lamp().right(4)
+    elm.Switch().down(3)
+    elm.Line().left(1)
+    d.push()
+    elm.Line().up(1)
+    elm.Battery().left(2)
+    elm.Line().down(1)
+    d.pop()
+    elm.Line().down(1)
+    elm.Battery().left(2)
+    elm.Line().up(1)
+    elm.Line().left(1)
+    d.push()
+    elm.Line().to(lamp.start)
+    d.pop()
+    elm.Line().down(3)
+    elm.MeterV().right(4)
+    elm.Line().up(3)
+
+with schemdraw.Drawing(file='./Code/circuit_diagram/series.svg', show=False) as d:
+    lamp = elm.Lamp().right(4)
+    elm.Switch().down(3)
+    elm.Line().left(1)
+    elm.Battery().left(1)
+    elm.Battery().left(1)
+    elm.Line().left(1)
+    d.push()
+    elm.Line().to(lamp.start)
+    d.pop()
+    elm.Line().down(3)
+    elm.MeterV().right(4)
+    elm.Line().up(3)
