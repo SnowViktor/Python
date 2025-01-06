@@ -29,3 +29,20 @@ def quadratic_formula(a: float | int, b: float | int, c: float | int) -> list[fl
         return [x1, x2] # Two Real Roots
     else:
         pass
+
+def continued_ratio(coefficient: tuple[float | int]) -> tuple[int]:
+    '''
+    Example:
+        >>> continued_ratio((3, 4, 4)) # 3x + 4y + 4z
+        (4, 3, 12) # x : y : z = 4 : 3 : 12
+    '''
+
+    x = coefficient[1] * coefficient[2]
+    y = coefficient[0] * coefficient[2]
+    z = coefficient[0] * coefficient[1]
+
+    x //= math.gcd(x, y, z)
+    y //= math.gcd(x, y, z)
+    z //= math.gcd(x, y, z)
+
+    return (x, y, z)
