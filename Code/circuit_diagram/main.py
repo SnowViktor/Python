@@ -1,36 +1,42 @@
 import schemdraw
-import schemdraw.elements as elm
+from schemdraw.elements import *
 
-with schemdraw.Drawing(file='./Code/circuit_diagram/parallel.svg', show=False) as d:
-    lamp = elm.Lamp().right(4)
-    elm.Switch().down(3)
-    elm.Line().left(1)
-    d.push()
-    elm.Line().up(1)
-    elm.Battery().left(2)
-    elm.Line().down(1)
-    d.pop()
-    elm.Line().down(1)
-    elm.Battery().left(2)
-    elm.Line().up(1)
-    elm.Line().left(1)
-    d.push()
-    elm.Line().to(lamp.start)
-    d.pop()
-    elm.Line().down(3)
-    elm.MeterV().right(4)
-    elm.Line().up(3)
+ROOT_PATH = './Code/circuit_diagram/'
 
-with schemdraw.Drawing(file='./Code/circuit_diagram/series.svg', show=False) as d:
-    lamp = elm.Lamp().right(4)
-    elm.Switch().down(3)
-    elm.Line().left(1)
-    elm.Battery().left(1)
-    elm.Battery().left(1)
-    elm.Line().left(1)
+with schemdraw.Drawing(file=f'{ROOT_PATH}parallel.svg', show=False) as d:
+    Line().right(1)
     d.push()
-    elm.Line().to(lamp.start)
+    Line().up(0.75)
+    Battery().right(2)
+    Line().down(0.75)
     d.pop()
-    elm.Line().down(3)
-    elm.MeterV().right(4)
-    elm.Line().up(3)
+    Line().down(0.75)
+    Battery().right(2)
+    Line().up(0.75)
+    Line().right(1)
+
+    Line().up(2)
+    d.push()
+    MeterA().left(2)
+    Lamp().left(2)
+
+    d.pop()
+    Line().up(2)
+    MeterV().left(4)
+    Line().to(d.elements[0].start)
+
+with schemdraw.Drawing(file=f'{ROOT_PATH}series.svg', show=False) as d:
+    Line().right(1)
+    Battery().right(1)
+    Battery().right(1)
+    Line().right(1)
+
+    Line().up(2)
+    d.push()
+    MeterA().left(2)
+    Lamp().left(2)
+    
+    d.pop()
+    Line().up(2)
+    MeterV().left(4)
+    Line().to(d.elements[0].start)

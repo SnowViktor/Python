@@ -24,4 +24,4 @@ def runway(degree: int | str) -> str:
     degree = int(degree) % 360
     runway_num = (degree + 5) // 10 % 36
 
-    return f'{runway_num:02d}' if runway_num != 0 else "36"
+    return f'{runway_num:02d}' if runway_num != 0 else '36'
