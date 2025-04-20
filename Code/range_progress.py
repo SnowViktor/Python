@@ -1,7 +1,8 @@
 from math import floor
 
+
 def range_progress(variable: int, start: int, stop: int, step: int = 0) -> str:
-    '''
+    """
     Returns a progress bar string representing the progress of `variable` within the range from `start` to `stop`.
 
     Parameters:
@@ -11,12 +12,12 @@ def range_progress(variable: int, start: int, stop: int, step: int = 0) -> str:
     - step (int, optional): The step increment. Defaults to 0 if not provided.
 
     Example:
-    
+
         >>> for i in range(2, 100):
         >>>     # variable = i, start = 2, stop = 100, step = 0
-        >>>     print(range_progress(i, 2, 100), end='\\r')
-    '''
-    
+        >>>     print(range_progress(i, 2, 100), end="\\r")
+    """
+
     BAR_TOTAL = 25
     total = stop - start
     variable = variable - start + 1 + step
@@ -26,8 +27,10 @@ def range_progress(variable: int, start: int, stop: int, step: int = 0) -> str:
 
     return f' [{"▮" * progress_bar}{"▯" * (BAR_TOTAL - progress_bar)}] {progress_percentage}%'
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     from time import sleep
+
     for i in range(2, 100):
-        sleep(0.1)
-        print(range_progress(i, 2, 100), end='\r')
+        sleep(0.05)
+        print(range_progress(i, 2, 100), end="\r")
